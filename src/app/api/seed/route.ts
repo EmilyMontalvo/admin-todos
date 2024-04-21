@@ -7,11 +7,11 @@ export async function GET(request: Request) {
     await prisma.todo.createMany({
         data:[
             { description: 'Piedra del alma', complete: true },
-            { description: 'Piedra del alma' },
-            { description: 'Piedra del alma' },
-            { description: 'Piedra del alma' },
-            { description: 'Piedra del alma' },
-            { description: 'Piedra del alma' },
+            { description: 'Caminar' },
+            { description: 'Terminar de hacer' },
+            { description: 'Algebra lineal' },
+            { description: 'Mila, cata, sofi y gordo' },
+            { description: 'Hola' },
 
         ]
     })
