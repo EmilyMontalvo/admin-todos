@@ -10,7 +10,6 @@ export const metadata = {
 
 export default async function RestTodosPage() {
 
-
   const todos = await prisma.todo.findMany({ orderBy: { description: 'asc' } })
 
   return (
