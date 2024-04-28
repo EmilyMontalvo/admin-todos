@@ -1,5 +1,33 @@
 import { Todo } from "@prisma/client";
-import { todo } from "node:test";
+
+
+export const deleteTodo = async () => {
+    await fetch(`/api/todos`,
+        {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }
+    ).then(res => res.json())
+}
+
+
+export const createTodo = async (description: string) : Promise<Todo> => {
+    const body ={description}
+    const dbTodo = await fetch(`/api/todos`,
+        {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }
+    ).then(res => res.json())
+
+    return dbTodo;
+
+}
 
 export const updateTodo = async (id: string, complete: boolean) : Promise<Todo> => {
     const body ={complete}

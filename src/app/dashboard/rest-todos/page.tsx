@@ -1,5 +1,5 @@
 import prisma from '@/app/lib/prisma';
-import { TodosGrid } from '@/todos';
+import { NewTodo, TodosGrid } from '@/todos';
 import React from 'react'
 
 
@@ -14,6 +14,10 @@ export default async function RestTodosPage() {
 
   return (
     <>
+      <div className='w-full px-3 mx-5 mb-5'>
+        <NewTodo />
+      </div>
+
       <TodosGrid todos={todos} />
 
     </>
