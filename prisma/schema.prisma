@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,11 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//Tables
+// Si tengo el modelo en mi código y quiero que se cree la tabla 
+//npx prisma migrate dev
 model Todo {
   id          String   @id @default(uuid())
   description String
   complete    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updateAt    DateTime @updatedAt
+}
+
+// Si ya tengo una tabla y quiero que se actualice en mi código
+// npx prisma db pull
+// npx prisma generate -> para que se cree el cliente y pode utilizar la tabla 
+//Si después añado algún campo aquí en código y quiero que se refleje en la db
+// npx prisma db push
+model Employee {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar
+  lastName      String   @db.VarChar
+  isAdmin   Boolean  @default(true)
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  roles String[] @default([])
 }
