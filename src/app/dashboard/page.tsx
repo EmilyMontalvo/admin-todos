@@ -1,6 +1,12 @@
 import {WidgetItem} from '@/components/widgets/WidgetItem'
 import React from 'react'
 
+
+export const metadata = {
+ title: 'Dashboard',
+ description: 'Dashboard',
+};
+
 const DashboardPage = () => {
   return (
     <>

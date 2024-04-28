@@ -1,7 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server'
 import prisma from '@/app/lib/prisma'
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
-import { object } from 'yup'
 import * as yup from 'yup';
 import { Todo } from '@prisma/client';
 
