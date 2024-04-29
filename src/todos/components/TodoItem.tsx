@@ -24,7 +24,6 @@ export const TodoItem = ({todo, toggleTodo}:Props) => {
                 ?<IoCheckboxOutline size={30}/>
                 :<IoSquareOutline size={30}/>
               }
-                
             </div>
             <div className='text-center sm:text-left'>{todo.description}</div>
         </div>

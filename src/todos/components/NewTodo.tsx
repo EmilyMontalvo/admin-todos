@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
 import * as api from '@/todos/helpers/todos'
 import { useRouter } from "next/navigation";
+import { addTodoSA, deleteCompletedSA } from "../actions/todo-actions";
 
 export const NewTodo = () => {
 
@@ -12,13 +13,14 @@ export const NewTodo = () => {
     const onSubmit = async (e: FormEvent) => {
 
         e.preventDefault();
-        if(description.trim().length === 0) return;
-        await api.createTodo(description);
+        if (description.trim().length === 0) return;
+        // await api.createTodo(description); // Con API RestFull
+        await addTodoSA(description) // Con server actions
         setDescription('')
-        router.refresh()
+        // router.refresh()
     }
 
-    const deleteCompleted = async () =>{
+    const deleteCompleted = async () => { //Lo uso dcon restAPI, ahorita no se usa porque está con server actions
         await api.deleteTodo()
         router.refresh()
     }
@@ -38,7 +40,7 @@ export const NewTodo = () => {
             <span className='flex flex-1'></span>
 
             <button
-                onClick={ () => deleteCompleted() }
+                onClick={() => deleteCompletedSA()}
                 type='button' className="flex items-center justify-center rounded ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all">
                 <IoTrashOutline />
                 <span className="ml-2">Borrar Completados</span>
