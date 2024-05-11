@@ -4,8 +4,22 @@
 import prisma from "@/app/lib/prisma"
 import { Todo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { resolve } from "path";
+
+
+export const sleep = async(seconds: number = 0) => {
+
+    return new Promise(resolve => {
+        setTimeout(()=>{resolve(true)}, seconds*1000);
+
+    })
+
+}
+
 
 export const toggleTodoSA = async (id: string, complete: boolean): Promise<Todo> => {
+
+    await sleep(3) //!Ralenticé a propósito la app para poder utilizar useOPTIMISTIC hook
 
     const todo = await prisma.todo.findFirst({ where: { id } });
 
