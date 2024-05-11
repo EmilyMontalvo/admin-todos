@@ -20,7 +20,7 @@ export const NewTodo = () => {
         // router.refresh()
     }
 
-    const deleteCompleted = async () => { //Lo uso dcon restAPI, ahorita no se usa porque está con server actions
+    const deleteCompleted = async () => { //Lo uso con restAPI, ahorita no se usa porque está con server actions
         await api.deleteTodo()
         router.refresh()
     }
