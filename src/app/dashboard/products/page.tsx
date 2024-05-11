@@ -5,7 +5,7 @@ import React from 'react'
 const ProductsPage = () => {
     return (
         <>
-            <div className='grid grid-cols-1 sm:grid-cols-3 gap-2'>
+            <div className='grid grid-cols-1 sm:grid-cols-5 gap-2'>
 
                 {
                     products.map(product => (
