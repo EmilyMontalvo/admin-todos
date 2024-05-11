@@ -1,5 +1,6 @@
 'use client'
 
+import { setCookie } from "cookies-next";
 import { useState } from "react";
 
 const tabOptions = [1, 2, 3, 4, 5]
@@ -16,10 +17,9 @@ export const TabBar = ({ currentTab = 1, tabOptions = [1, 2, 3, 4] }: Props) => 
 
   const onTabSelected = (tab: number) => {
     setSelected(tab)
+    setCookie('selectedTab',tab.toString()) //! Solo usar del lado del cliente
+                                            // Añado una cookie con el nombre selectedTab y su valor (tiene que ser string)
   }
-
-
-
 
   return (
     <div className={`grid w-full space-x-2 rounded-xl bg-gray-200 p-2 ${'grid-cols-' + tabOptions.length}`}>
