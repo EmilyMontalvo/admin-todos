@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image';
 import { CiLogout } from 'react-icons/ci';
 import { SidebarItem } from './SidebarItem';
-import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from 'react-icons/io5';
+import { IoBaseball, IoCalendarOutline, IoCheckboxOutline, IoListOutline } from 'react-icons/io5';
 import { IoMdColorWand } from 'react-icons/io';
 
 const menuItems = [
@@ -26,6 +26,12 @@ const menuItems = [
         path: '/dashboard/cookies',
         icon: <IoMdColorWand size={30} />,
         title: 'Cookies',
+    }
+    ,
+    {
+        path: '/dashboard/products',
+        icon: <IoBaseball size={30} />,
+        title: 'Products',
     }
 ]
 
