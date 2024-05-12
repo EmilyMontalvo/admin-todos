@@ -12,4 +12,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     GitHub, 
     Google
   ],
+  session: {
+    strategy:'jwt'
+  }, 
+  callbacks:{
+    async signIn({user, account, profile, email, credentials}){
+      return true
+
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      return token
+    },
+
+    async session({ session, user, token }) {
+      return session
+    }
+
+  }
 })
