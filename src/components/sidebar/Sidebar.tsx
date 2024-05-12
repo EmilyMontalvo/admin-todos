@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import React from 'react'
 import Image from 'next/image';
-import { CiLogout } from 'react-icons/ci';
 import { SidebarItem } from './SidebarItem';
-import { IoBaseball, IoBaseballOutline, IoCalendarOutline, IoCheckboxOutline, IoListOutline, IoPerson, IoPersonOutline } from 'react-icons/io5';
+import { IoBaseballOutline, IoCalendarOutline, IoCheckboxOutline, IoListOutline,  IoPersonOutline } from 'react-icons/io5';
 import { IoMdColorWand } from 'react-icons/io';
 import { auth } from '@/auth';
-import { redirect } from 'next/navigation';
+import { LogoutButtom } from '@/components/index';
 
 const menuItems = [
     {
@@ -79,10 +78,7 @@ export const Sidebar = async  () => {
                     </ul>
                 </div>
                 <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-                    <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                        <CiLogout />
-                        <span className="group-hover:text-gray-700">Logout</span>
-                    </button>
+                   <LogoutButtom/>
                 </div>
             </aside>
 
