@@ -24,6 +24,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user, account, profile}) {
       
       const dbuser = await prisma.user.findUnique({where:{email:token.email?? 'no email'}})
+
+      if(dbuser?.isActive == false)throw Error('Usuario no activo')
+
+
+
       token.roles = dbuser?.roles ?? ['no-roles'];
       token.id = dbuser?.id ?? 'no-uuid';
       console.log(token)
