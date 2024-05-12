@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image';
 import { CiLogout } from 'react-icons/ci';
 import { SidebarItem } from './SidebarItem';
-import { IoBaseball, IoCalendarOutline, IoCheckboxOutline, IoListOutline } from 'react-icons/io5';
+import { IoBaseball, IoBaseballOutline, IoCalendarOutline, IoCheckboxOutline, IoListOutline, IoPerson, IoPersonOutline } from 'react-icons/io5';
 import { IoMdColorWand } from 'react-icons/io';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
@@ -32,8 +32,14 @@ const menuItems = [
     ,
     {
         path: '/dashboard/products',
-        icon: <IoBaseball size={30} />,
+        icon: <IoBaseballOutline size={30} />,
         title: 'Products',
+    }
+    ,
+    {
+        path: '/dashboard/profile',
+        icon: <IoPersonOutline size={30} />,
+        title: 'Perfil',
     }
 ]
 
