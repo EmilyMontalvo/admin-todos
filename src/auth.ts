@@ -60,7 +60,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       token.roles = dbuser?.roles ?? ['no-roles'];
       token.id = dbuser?.id ?? 'no-uuid';
-      console.log(token)
 
       return token
     },
