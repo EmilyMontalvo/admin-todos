@@ -15,14 +15,12 @@ const prisma = new PrismaClient()
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
-    GitHub,
-    Google,
     Credentials({
       credentials: {
         email: { label: "Correo Electrónico", type: "email", placeholder: "usuario@google.com" },
         password: { label: "Contraseña", type: "password", placeholder: "*********" },
       },
-      async authorize(credentials, req)   {
+      async authorize(credentials)   {
         //! Para login por API
         // const response = await fetch(request) 
         // if (!response.ok) return null
@@ -41,6 +39,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return user
       },
     }),
+    GitHub,
+    Google,
   ],
   session: {
     strategy: 'jwt'

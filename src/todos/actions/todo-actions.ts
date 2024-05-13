@@ -2,6 +2,7 @@
 //Se ejecuta del lado del servidor pero el cliente puede mandarlo a llamar
 //necesario especificar, si no, no vale
 import prisma from "@/app/lib/prisma"
+import { auth } from "@/auth";
 import { Todo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { resolve } from "path";
@@ -41,8 +42,8 @@ export const toggleTodoSA = async (id: string, complete: boolean): Promise<Todo>
 export const addTodoSA = async (description: string) => {
 
     try {
-
-        const todo = await prisma.todo.create({ data: { description } })
+        const session = await auth()
+        const todo = await prisma.todo.create({ data: { description, userId:session?.user?.id as string } })
         revalidatePath('/dashboard/server-todos')// hace el refresh
         return todo
     } catch (error) {

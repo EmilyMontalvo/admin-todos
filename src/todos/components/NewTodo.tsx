@@ -4,6 +4,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import * as api from '@/todos/helpers/todos'
 import { useRouter } from "next/navigation";
 import { addTodoSA, deleteCompletedSA } from "../actions/todo-actions";
+import { auth } from "@/auth";
 
 export const NewTodo = () => {
 
@@ -14,10 +15,12 @@ export const NewTodo = () => {
 
         e.preventDefault();
         if (description.trim().length === 0) return;
-        // await api.createTodo(description); // Con API RestFull
-        await addTodoSA(description) // Con server actions
+         //await api.createTodo(description); // Con API RestFull
+
+        
+         await addTodoSA(description) // Con server actions
         setDescription('')
-        // router.refresh()
+         //router.refresh()
     }
 
     const deleteCompleted = async () => { //Lo uso con restAPI, ahorita no se usa porque está con server actions
