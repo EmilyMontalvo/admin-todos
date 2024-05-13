@@ -15,6 +15,12 @@ docker compose up -d
 7. Ejecutar los comandos para la migración en prisma
 8. Ejecutar el SEED para crear la [base de datos local](localhost:3000/api/seed)
 
+## Nota: Usuario por defecto 
+--
+usuario: test@google.com
+password: 12345
+
+
 ## Prisma commands
 ```
 npx prisma init
